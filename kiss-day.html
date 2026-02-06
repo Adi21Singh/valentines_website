@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiss Day - For Jana</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    padding: 20px;
+  }
+
+  .container {
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: #dc2626;
+    margin-bottom: 10px;
+  }
+
+  .date {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .message {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.9;
+    margin: 20px 0;
+    text-align: left;
+  }
+
+  .icon {
+    font-size: 80px;
+    cursor: pointer;
+    animation: kiss 1.5s ease-in-out infinite;
+  }
+
+  @keyframes kiss {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  .signature {
+    text-align: right;
+    font-style: italic;
+    color: #dc2626;
+    margin-top: 15px;
+  }
+
+  .kiss-note {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 2px solid #fca5a5;
+  }
+
+  .kiss-marks {
+    font-size: 30px;
+    letter-spacing: 8px;
+    margin: 10px 0;
+  }
+
+  .music-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 20px;
+  }
+
+  .music-btn {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  nav {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  nav a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220,38,38,0.4);
+  }
+
+  nav a.active {
+    background: #333;
+  }
+
+  .floating-kiss {
+    position: fixed;
+    font-size: 24px;
+    animation: floatKiss 3s ease-out forwards;
+    pointer-events: none;
+  }
+
+  @keyframes floatKiss {
+    0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(-150px) rotate(20deg); }
+  }
+
+  .teaser {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #b91c1c;
+  }
+</style>
+</head>
+<body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const UNLOCK_DATE = { month: 2, day: 13 };
+    const today = new Date();
+    const currentMonth = today.getMonth() + 1;
+    const currentDay = today.getDate();
+
+    if (currentMonth !== UNLOCK_DATE.month || currentDay < UNLOCK_DATE.day) {
+      document.body.innerHTML = `
+        <div style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 25px; text-align: center; max-width: 360px; box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
+          <div style="font-size: 80px;">🔒</div>
+          <h2 style="font-family: 'Great Vibes', cursive; font-size: 36px; color: #dc2626;">Not Yet, My Love!</h2>
+          <p style="color: #666;">This page unlocks on <strong>February 13th</strong> (Kiss Day)</p>
+          <p style="color: #999; font-size: 14px;">Come back on the special day!</p>
+          <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: linear-gradient(135deg, #dc2626, #ef4444); color: white; text-decoration: none; border-radius: 20px;">Go Back</a>
+        </div>
+      `;
+    } else {
+      const PASSWORD = "AdiJana";
+      let userPass;
+      while (userPass !== PASSWORD) {
+        userPass = prompt("This page is only for Jana\n\nHint: Combine both our names");
+        if (userPass !== PASSWORD && userPass !== null) {
+          alert("Try again, my love!");
+        }
+        if (userPass === null) break;
+      }
+    }
+  });
+</script>
+
+<div class="container">
+  <div class="icon" id="kissIcon">💋</div>
+  <h1>Kiss Day</h1>
+  <p class="date">February 13th</p>
+
+  <div class="message">
+    <p>Jana...</p>
+    <p>Okay so we're at Kiss Day now. Things are getting real. 😳❤️</p>
+    <p>I'm not gonna write some cringy stuff about your lips or whatever (okay maybe a little). But what I will say is this: every kiss with you feels like the first one. You know that nervous-excited feeling? Yeah, that never went away.</p>
+  </div>
+
+  <div class="kiss-note">
+    <div class="kiss-marks">💋 💋 💋 💋 💋</div>
+    <p style="color: #b91c1c; font-style: italic; margin: 0;">
+      One for good morning<br>
+      One for good night<br>
+      One for "I missed you"<br>
+      One for "you're right" (rare, I know 😂)<br>
+      One just because I can
+    </p>
+  </div>
+
+  <div class="message">
+    <p>Click anywhere on the screen to send kisses. Each one reaches you, I promise. Even through the screen. It's science. (It's not science but just go with it.)</p>
+    <p class="signature">Kisses always,<br>Adi 💋❤️</p>
+  </div>
+
+  <div class="teaser">
+    🎉 Tomorrow is the BIG day! The final surprise awaits...
+  </div>
+
+  <p class="music-note">🎵 Romantic melody for you</p>
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/05/16/audio_db6ed8762a.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-btn" onclick="document.getElementById('music').play()">▶ Play Music</button>
+
+  <nav>
+    <a href="rose-day.html">Rose Day</a>
+    <a href="propose-day.html">Propose Day</a>
+    <a href="chocolate-day.html">Chocolate Day</a>
+    <a href="teddy-day.html">Teddy Day</a>
+    <a href="promise-day.html">Promise Day</a>
+    <a href="hug-day.html">Hug Day</a>
+    <a href="kiss-day.html" class="active">Kiss Day</a>
+    <a href="valentines.html">Valentine's Day</a>
+  </nav>
+</div>
+
+<script>
+  document.body.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+
+    const kisses = ["💋", "😘", "💕", "❤️"];
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        const kiss = document.createElement("div");
+        kiss.className = "floating-kiss";
+        kiss.innerHTML = kisses[Math.floor(Math.random() * kisses.length)];
+        kiss.style.left = (e.clientX + (Math.random() - 0.5) * 60) + "px";
+        kiss.style.top = e.clientY + "px";
+        document.body.appendChild(kiss);
+        setTimeout(() => kiss.remove(), 3000);
+      }, i * 100);
+    }
+  });
+</script>
+
+</body>
+</html>

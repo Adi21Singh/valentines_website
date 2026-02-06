@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chocolate Day - For Jana</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #78350f, #92400e);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    padding: 20px;
+  }
+
+  .container {
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: #78350f;
+    margin-bottom: 10px;
+  }
+
+  .date {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .message {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.9;
+    margin: 20px 0;
+    text-align: left;
+  }
+
+  .icon {
+    font-size: 80px;
+    animation: bounce 1s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .signature {
+    text-align: right;
+    font-style: italic;
+    color: #78350f;
+    margin-top: 15px;
+  }
+
+  .chocolate-box {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 3px solid #92400e;
+  }
+
+  .chocolates {
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .music-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 20px;
+  }
+
+  .music-btn {
+    background: linear-gradient(135deg, #78350f, #92400e);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  nav {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #78350f, #92400e);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  nav a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(120,53,15,0.4);
+  }
+
+  nav a.active {
+    background: #333;
+  }
+
+  .falling {
+    position: fixed;
+    font-size: 24px;
+    animation: fall 3s linear forwards;
+    pointer-events: none;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(180deg);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const UNLOCK_DATE = { month: 2, day: 9 };
+    const today = new Date();
+    const currentMonth = today.getMonth() + 1;
+    const currentDay = today.getDate();
+
+    if (currentMonth !== UNLOCK_DATE.month || currentDay < UNLOCK_DATE.day) {
+      document.body.innerHTML = `
+        <div style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 25px; text-align: center; max-width: 360px; box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
+          <div style="font-size: 80px;">🔒</div>
+          <h2 style="font-family: 'Great Vibes', cursive; font-size: 36px; color: #78350f;">Not Yet, My Love!</h2>
+          <p style="color: #666;">This page unlocks on <strong>February 9th</strong> (Chocolate Day)</p>
+          <p style="color: #999; font-size: 14px;">Come back on the special day!</p>
+          <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: linear-gradient(135deg, #78350f, #92400e); color: white; text-decoration: none; border-radius: 20px;">Go Back</a>
+        </div>
+      `;
+    } else {
+      const PASSWORD = "AdiJana";
+      let userPass;
+      while (userPass !== PASSWORD) {
+        userPass = prompt("This page is only for Jana\n\nHint: Combine both our names");
+        if (userPass !== PASSWORD && userPass !== null) {
+          alert("Try again, my love!");
+        }
+        if (userPass === null) break;
+      }
+    }
+  });
+</script>
+
+<div class="container">
+  <div class="icon">🍫</div>
+  <h1>Chocolate Day</h1>
+  <p class="date">February 9th</p>
+
+  <div class="message">
+    <p>Hey you,</p>
+    <p>Chocolate Day! Finally something I can actually relate to because let's be real - you're basically my chocolate. Addictive, sweet, and I literally cannot have just a little bit of you. Once I start talking to you, hours disappear. 😅</p>
+    <p>Remember when we first started talking and I'd make excuses just to text you? "Oh I just saw this meme" or "random question but..." Yeah, I was down bad from day one.</p>
+  </div>
+
+  <div class="chocolate-box">
+    <p style="color: #78350f; font-weight: 500; margin: 0 0 10px 0;">Virtual chocolates for you:</p>
+    <div class="chocolates">🍫 🍬 🧁 🍰 🍪</div>
+    <p style="font-size: 13px; color: #666; margin: 10px 0 0 0;">(Real ones coming your way too, obviously)</p>
+  </div>
+
+  <div class="message">
+    <p>Fun fact: Chocolate releases the same chemicals in your brain as being in love. So technically, you're my chocolate AND you give me a chocolate high. Double win. 🏆</p>
+    <p class="signature">Your sweet tooth,<br>Adi 🍫</p>
+  </div>
+
+  <p class="music-note">🎵 Sweet melody for you</p>
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2023/09/05/audio_4815a84a6d.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-btn" onclick="document.getElementById('music').play()">▶ Play Music</button>
+
+  <nav>
+    <a href="rose-day.html">Rose Day</a>
+    <a href="propose-day.html">Propose Day</a>
+    <a href="chocolate-day.html" class="active">Chocolate Day</a>
+    <a href="teddy-day.html">Teddy Day</a>
+    <a href="promise-day.html">Promise Day</a>
+    <a href="hug-day.html">Hug Day</a>
+    <a href="kiss-day.html">Kiss Day</a>
+    <a href="valentines.html">Valentine's Day</a>
+  </nav>
+</div>
+
+<script>
+  function createChocolates() {
+    const treats = ["🍫", "🍬", "🍭", "🧁", "🍪"];
+    setInterval(() => {
+      const choco = document.createElement("div");
+      choco.className = "falling";
+      choco.innerHTML = treats[Math.floor(Math.random() * treats.length)];
+      choco.style.left = Math.random() * window.innerWidth + "px";
+      choco.style.top = "-30px";
+      document.body.appendChild(choco);
+      setTimeout(() => choco.remove(), 3000);
+    }, 400);
+  }
+  createChocolates();
+</script>
+
+</body>
+</html>

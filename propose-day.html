@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propose Day - For Jana</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #a855f7, #7c3aed);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    padding: 20px;
+  }
+
+  .container {
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: #7c3aed;
+    margin-bottom: 10px;
+  }
+
+  .date {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .message {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.9;
+    margin: 20px 0;
+    text-align: left;
+  }
+
+  .icon {
+    font-size: 80px;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .signature {
+    text-align: right;
+    font-style: italic;
+    color: #7c3aed;
+    margin-top: 15px;
+  }
+
+  .music-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 20px;
+  }
+
+  .music-btn {
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  nav {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  nav a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(124,58,237,0.4);
+  }
+
+  nav a.active {
+    background: #333;
+  }
+
+  .sparkle {
+    position: fixed;
+    font-size: 18px;
+    animation: sparkle 2s linear forwards;
+    pointer-events: none;
+  }
+
+  @keyframes sparkle {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-50px) scale(0); }
+  }
+</style>
+</head>
+<body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const UNLOCK_DATE = { month: 2, day: 8 };
+    const today = new Date();
+    const currentMonth = today.getMonth() + 1;
+    const currentDay = today.getDate();
+
+    if (currentMonth !== UNLOCK_DATE.month || currentDay < UNLOCK_DATE.day) {
+      document.body.innerHTML = `
+        <div style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 25px; text-align: center; max-width: 360px; box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
+          <div style="font-size: 80px;">🔒</div>
+          <h2 style="font-family: 'Great Vibes', cursive; font-size: 36px; color: #7c3aed;">Not Yet, My Love!</h2>
+          <p style="color: #666;">This page unlocks on <strong>February 8th</strong> (Propose Day)</p>
+          <p style="color: #999; font-size: 14px;">Come back on the special day!</p>
+          <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; text-decoration: none; border-radius: 20px;">Go Back</a>
+        </div>
+      `;
+    } else {
+      const PASSWORD = "AdiJana";
+      let userPass;
+      while (userPass !== PASSWORD) {
+        userPass = prompt("This page is only for Jana\n\nHint: Combine both our names");
+        if (userPass !== PASSWORD && userPass !== null) {
+          alert("Try again, my love!");
+        }
+        if (userPass === null) break;
+      }
+    }
+  });
+</script>
+
+<div class="container">
+  <div class="icon">💍</div>
+  <h1>Propose Day</h1>
+  <p class="date">February 8th</p>
+
+  <div class="message">
+    <p>Jana,</p>
+    <p>Okay so "Propose Day" sounds super serious and I'm not trying to freak you out lol. But hear me out...</p>
+    <p>I'm not proposing marriage (yet 😉). What I AM proposing is this:</p>
+    <p>I propose that we keep annoying each other for as long as possible. I propose more late-night calls where we both say "you hang up first" like idiots. I propose more stupid arguments about nothing and making up 5 minutes later.</p>
+    <p>I propose more of US.</p>
+    <p>You came into my life and suddenly everything just... made sense? Like I didn't even know something was missing until you showed up and filled that space.</p>
+    <p>So Jana, will you keep putting up with me? Because I'm definitely not going anywhere. 💜</p>
+    <p class="signature">Your person,<br>Adi</p>
+  </div>
+
+  <p class="music-note">🎵 Romantic melody for you</p>
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/08/25/audio_4f3b0a816e.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-btn" onclick="document.getElementById('music').play()">▶ Play Music</button>
+
+  <nav>
+    <a href="rose-day.html">Rose Day</a>
+    <a href="propose-day.html" class="active">Propose Day</a>
+    <a href="chocolate-day.html">Chocolate Day</a>
+    <a href="teddy-day.html">Teddy Day</a>
+    <a href="promise-day.html">Promise Day</a>
+    <a href="hug-day.html">Hug Day</a>
+    <a href="kiss-day.html">Kiss Day</a>
+    <a href="valentines.html">Valentine's Day</a>
+  </nav>
+</div>
+
+<script>
+  function createSparkles() {
+    setInterval(() => {
+      const sparkle = document.createElement("div");
+      sparkle.className = "sparkle";
+      sparkle.innerHTML = ["✨", "💜", "💫", "⭐"][Math.floor(Math.random() * 4)];
+      sparkle.style.left = Math.random() * window.innerWidth + "px";
+      sparkle.style.top = Math.random() * window.innerHeight + "px";
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 2000);
+    }, 200);
+  }
+  createSparkles();
+</script>
+
+</body>
+</html>

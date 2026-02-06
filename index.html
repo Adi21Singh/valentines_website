@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Jana ❤️</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Week - For Jana</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-
 <style>
+  * { box-sizing: border-box; }
   body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #ffdde1, #ee9ca7);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+    padding: 20px;
   }
 
   .container {
@@ -23,136 +23,135 @@
     padding: 40px;
     border-radius: 25px;
     text-align: center;
-    width: 360px;
+    max-width: 450px;
+    width: 100%;
     box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-    position: relative;
     animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 42px;
+    font-size: 48px;
     color: #ff4d6d;
+    margin: 0 0 10px 0;
   }
 
-  button {
-    padding: 12px 22px;
-    font-size: 18px;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    margin: 15px;
+  .subtitle {
+    color: #666;
+    margin-bottom: 30px;
   }
 
-  #yesBtn {
-    background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  .heart-icon {
+    font-size: 60px;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  .days-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .day-card {
+    padding: 15px 10px;
+    border-radius: 15px;
+    text-decoration: none;
     color: white;
+    font-size: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
   }
 
-  #noBtn {
-    background: #eee;
-    position: absolute;
+  .day-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   }
 
-  img {
-    width: 100%;
-    border-radius: 20px;
-    margin-top: 20px;
-  }
+  .day-card .icon { font-size: 28px; }
+  .day-card .date { font-size: 11px; opacity: 0.9; }
 
-  /* 🌹 Rose petals */
-  .petal {
-    position: fixed;
-    font-size: 22px;
-    animation: fall 4s linear forwards;
-  }
+  .rose { background: linear-gradient(135deg, #e63946, #ff6b6b); }
+  .propose { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+  .chocolate { background: linear-gradient(135deg, #78350f, #92400e); }
+  .teddy { background: linear-gradient(135deg, #b45309, #d97706); }
+  .promise { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+  .hug { background: linear-gradient(135deg, #db2777, #ec4899); }
+  .kiss { background: linear-gradient(135deg, #dc2626, #ef4444); }
+  .valentine { background: linear-gradient(135deg, #ff4d6d, #ff758f); grid-column: span 2; }
 
-  @keyframes fall {
-    to {
-      transform: translateY(100vh) rotate(360deg);
-      opacity: 0;
-    }
-  }
-
-  /* ❌ Shake animation */
-  .shake {
-    animation: shake 0.4s;
-  }
-
-  @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-6px); }
-    50% { transform: translateX(6px); }
-    75% { transform: translateX(-6px); }
-    100% { transform: translateX(0); }
+  .footer {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #999;
   }
 </style>
 </head>
 <body>
 
-<script>
-  // 🔐 PASSWORD SET HERE
-  const PASSWORD = "AdiJana";
-  let userPass;
+<div class="container">
+  <div class="heart-icon">💕</div>
+  <h1>For Jana</h1>
+  <p class="subtitle">A surprise for each day of Valentine's Week</p>
 
-  while (userPass !== PASSWORD) {
-    userPass = prompt(
-      "This page is only for Jana 💕\n\nHint: Combine both our names ❤️"
-    );
+  <div class="days-grid">
+    <a href="rose-day.html" class="day-card rose">
+      <span class="icon">🌹</span>
+      <span>Rose Day</span>
+      <span class="date">Feb 7</span>
+    </a>
+    <a href="propose-day.html" class="day-card propose">
+      <span class="icon">💍</span>
+      <span>Propose Day</span>
+      <span class="date">Feb 8</span>
+    </a>
+    <a href="chocolate-day.html" class="day-card chocolate">
+      <span class="icon">🍫</span>
+      <span>Chocolate Day</span>
+      <span class="date">Feb 9</span>
+    </a>
+    <a href="teddy-day.html" class="day-card teddy">
+      <span class="icon">🧸</span>
+      <span>Teddy Day</span>
+      <span class="date">Feb 10</span>
+    </a>
+    <a href="promise-day.html" class="day-card promise">
+      <span class="icon">🤞</span>
+      <span>Promise Day</span>
+      <span class="date">Feb 11</span>
+    </a>
+    <a href="hug-day.html" class="day-card hug">
+      <span class="icon">🤗</span>
+      <span>Hug Day</span>
+      <span class="date">Feb 12</span>
+    </a>
+    <a href="kiss-day.html" class="day-card kiss">
+      <span class="icon">💋</span>
+      <span>Kiss Day</span>
+      <span class="date">Feb 13</span>
+    </a>
+    <a href="valentines.html" class="day-card valentine">
+      <span class="icon">❤️</span>
+      <span>Valentine's Day</span>
+      <span class="date">Feb 14</span>
+    </a>
+  </div>
 
-    if (userPass !== PASSWORD) {
-      document.body.classList.add("shake");
-      setTimeout(() => document.body.classList.remove("shake"), 400);
-    }
-  }
-</script>
-
-<div class="container" id="card">
-  <h1>Jana ❤️</h1>
-  <p>Will you be my Valentine? 💕</p>
-
-  <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
-  <button id="noBtn" onmouseenter="moveNo()">No 🙄</button>
+  <p class="footer">With all my love, Adi</p>
 </div>
-
-<!-- 🎶 Background Music -->
-<audio id="music" loop>
-  <source src="lover.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  const noBtn = document.getElementById("noBtn");
-
-  function moveNo() {
-    noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-    noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
-  }
-
-  function rosePetals() {
-    for (let i = 0; i < 120; i++) {
-      const petal = document.createElement("div");
-      petal.className = "petal";
-      petal.innerHTML = "🌹";
-      petal.style.left = Math.random() * window.innerWidth + "px";
-      petal.style.animationDuration = Math.random() * 2 + 3 + "s";
-      document.body.appendChild(petal);
-      setTimeout(() => petal.remove(), 4000);
-    }
-  }
-
-  function sayYes() {
-    rosePetals();
-    document.getElementById("music").play();
-
-    document.getElementById("card").innerHTML = `
-      <h1>I love you ❤️</h1>
-      <p>Thank you for being my Valentine, Jana 💘</p>
-      <p style="font-size:42px">💐</p>
-
-      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWMxc2xkNndhN3JwbDdidjVydjlzbXF3dWd5eWU0ZWl3YjAxZWxuciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1ThndC5odGuUU/giphy.gif">
-    `;
-  }
-</script>
 
 </body>
 </html>

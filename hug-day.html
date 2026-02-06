@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hug Day - For Jana</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f472b6, #ec4899);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    padding: 20px;
+  }
+
+  .container {
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: #db2777;
+    margin-bottom: 10px;
+  }
+
+  .date {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .message {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.9;
+    margin: 20px 0;
+    text-align: left;
+  }
+
+  .icon {
+    font-size: 80px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .icon:hover {
+    transform: scale(1.2);
+  }
+
+  .signature {
+    text-align: right;
+    font-style: italic;
+    color: #db2777;
+    margin-top: 15px;
+  }
+
+  .hug-counter {
+    background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+  }
+
+  .hug-counter h3 {
+    color: #db2777;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+  }
+
+  .counter {
+    font-size: 48px;
+    color: #be185d;
+    font-weight: bold;
+  }
+
+  .hug-btn {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .hug-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(219,39,119,0.4);
+  }
+
+  .music-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 20px;
+  }
+
+  .music-btn {
+    background: linear-gradient(135deg, #db2777, #ec4899);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  nav {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #db2777, #ec4899);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  nav a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(219,39,119,0.4);
+  }
+
+  nav a.active {
+    background: #333;
+  }
+
+  .heart-burst {
+    position: fixed;
+    font-size: 30px;
+    animation: burst 1s ease-out forwards;
+    pointer-events: none;
+  }
+
+  @keyframes burst {
+    0% { opacity: 1; transform: scale(0.5); }
+    100% { opacity: 0; transform: scale(2) translateY(-50px); }
+  }
+</style>
+</head>
+<body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const UNLOCK_DATE = { month: 2, day: 12 };
+    const today = new Date();
+    const currentMonth = today.getMonth() + 1;
+    const currentDay = today.getDate();
+
+    if (currentMonth !== UNLOCK_DATE.month || currentDay < UNLOCK_DATE.day) {
+      document.body.innerHTML = `
+        <div style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 25px; text-align: center; max-width: 360px; box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
+          <div style="font-size: 80px;">🔒</div>
+          <h2 style="font-family: 'Great Vibes', cursive; font-size: 36px; color: #db2777;">Not Yet, My Love!</h2>
+          <p style="color: #666;">This page unlocks on <strong>February 12th</strong> (Hug Day)</p>
+          <p style="color: #999; font-size: 14px;">Come back on the special day!</p>
+          <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: linear-gradient(135deg, #db2777, #ec4899); color: white; text-decoration: none; border-radius: 20px;">Go Back</a>
+        </div>
+      `;
+    } else {
+      const PASSWORD = "AdiJana";
+      let userPass;
+      while (userPass !== PASSWORD) {
+        userPass = prompt("This page is only for Jana\n\nHint: Combine both our names");
+        if (userPass !== PASSWORD && userPass !== null) {
+          alert("Try again, my love!");
+        }
+        if (userPass === null) break;
+      }
+    }
+  });
+</script>
+
+<div class="container">
+  <div class="icon" onclick="sendHug()">🤗</div>
+  <h1>Hug Day</h1>
+  <p class="date">February 12th</p>
+
+  <div class="message">
+    <p>Hey baby,</p>
+    <p>You know what I miss most when we're apart? Your hugs. Not just any hugs - YOUR hugs. The way you fit perfectly against me, how you squeeze a little tighter before letting go, that little sigh you do when you're comfortable.</p>
+    <p>God, I sound so cheesy right now but I don't even care. 😅</p>
+  </div>
+
+  <div class="hug-counter">
+    <h3>Virtual Hugs Sent To You</h3>
+    <div class="counter" id="counter">0</div>
+    <button class="hug-btn" onclick="sendHug()">Send a Hug! 🤗</button>
+    <p style="font-size: 12px; color: #666; margin-top: 10px;">Every hug here = one real hug I owe you</p>
+  </div>
+
+  <div class="message">
+    <p>Fun fact: Hugging releases oxytocin, reduces stress, and boosts your immune system. So basically, I'm good for your health. You're welcome. 😉</p>
+    <p>Can't wait to give you the biggest hug soon. Like, the kind where I lift you up a little. Those are my favorite.</p>
+    <p class="signature">Sending warm hugs,<br>Adi 🤗💕</p>
+  </div>
+
+  <p class="music-note">🎵 Warm melody for you</p>
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2023/10/07/audio_697aa9d4b0.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-btn" onclick="document.getElementById('music').play()">▶ Play Music</button>
+
+  <nav>
+    <a href="rose-day.html">Rose Day</a>
+    <a href="propose-day.html">Propose Day</a>
+    <a href="chocolate-day.html">Chocolate Day</a>
+    <a href="teddy-day.html">Teddy Day</a>
+    <a href="promise-day.html">Promise Day</a>
+    <a href="hug-day.html" class="active">Hug Day</a>
+    <a href="kiss-day.html">Kiss Day</a>
+    <a href="valentines.html">Valentine's Day</a>
+  </nav>
+</div>
+
+<script>
+  let hugCount = parseInt(localStorage.getItem('hugCount')) || 0;
+  document.getElementById('counter').textContent = hugCount;
+
+  function sendHug() {
+    hugCount++;
+    localStorage.setItem('hugCount', hugCount);
+    document.getElementById('counter').textContent = hugCount;
+
+    const hearts = ["💕", "💗", "💖", "💝", "🤗"];
+    for (let i = 0; i < 8; i++) {
+      setTimeout(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart-burst";
+        heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = (window.innerWidth/2 + (Math.random() - 0.5) * 200) + "px";
+        heart.style.top = (window.innerHeight/2 + (Math.random() - 0.5) * 200) + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1000);
+      }, i * 50);
+    }
+  }
+</script>
+
+</body>
+</html>

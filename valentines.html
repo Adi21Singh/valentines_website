@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Jana ❤️</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Day - For Jana</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-
 <style>
+  * { box-sizing: border-box; }
   body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #ffdde1, #ee9ca7);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    padding: 20px;
   }
 
   .container {
@@ -23,16 +24,38 @@
     padding: 40px;
     border-radius: 25px;
     text-align: center;
-    width: 360px;
+    width: 100%;
+    max-width: 400px;
     box-shadow: 0 25px 50px rgba(0,0,0,0.2);
     position: relative;
     animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 42px;
     color: #ff4d6d;
+    margin-bottom: 10px;
+  }
+
+  .message {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.9;
+    margin: 20px 0;
+    text-align: left;
+  }
+
+  .signature {
+    text-align: right;
+    font-style: italic;
+    color: #ff4d6d;
+    margin-top: 15px;
   }
 
   button {
@@ -41,7 +64,12 @@
     border: none;
     border-radius: 14px;
     cursor: pointer;
-    margin: 15px;
+    margin: 10px;
+    transition: transform 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.05);
   }
 
   #yesBtn {
@@ -60,11 +88,11 @@
     margin-top: 20px;
   }
 
-  /* 🌹 Rose petals */
   .petal {
     position: fixed;
     font-size: 22px;
     animation: fall 4s linear forwards;
+    pointer-events: none;
   }
 
   @keyframes fall {
@@ -74,7 +102,6 @@
     }
   }
 
-  /* ❌ Shake animation */
   .shake {
     animation: shake 0.4s;
   }
@@ -86,57 +113,156 @@
     75% { transform: translateX(-6px); }
     100% { transform: translateX(0); }
   }
+
+  nav {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #ff4d6d, #ff758f);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  nav a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,77,109,0.4);
+  }
+
+  nav a.active {
+    background: #333;
+  }
+
+  .music-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 20px;
+  }
+
+  .music-btn {
+    background: linear-gradient(135deg, #ff4d6d, #ff758f);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .final-message {
+    background: linear-gradient(135deg, #fff5f5, #ffe4e6);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 2px solid #fecdd3;
+  }
 </style>
 </head>
 <body>
 
 <script>
-  // 🔐 PASSWORD SET HERE
-  const PASSWORD = "AdiJana";
-  let userPass;
+  document.addEventListener('DOMContentLoaded', function() {
+    const UNLOCK_DATE = { month: 2, day: 14 };
+    const today = new Date();
+    const currentMonth = today.getMonth() + 1;
+    const currentDay = today.getDate();
 
-  while (userPass !== PASSWORD) {
-    userPass = prompt(
-      "This page is only for Jana 💕\n\nHint: Combine both our names ❤️"
-    );
+    if (currentMonth !== UNLOCK_DATE.month || currentDay < UNLOCK_DATE.day) {
+      document.body.innerHTML = `
+        <div style="background: rgba(255,255,255,0.95); padding: 40px; border-radius: 25px; text-align: center; max-width: 360px; box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
+          <div style="font-size: 80px;">🔒</div>
+          <h2 style="font-family: 'Great Vibes', cursive; font-size: 36px; color: #ff4d6d;">Not Yet, My Love!</h2>
+          <p style="color: #666;">This page unlocks on <strong>February 14th</strong> (Valentine's Day)</p>
+          <p style="color: #999; font-size: 14px;">The best is saved for last!</p>
+          <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: linear-gradient(135deg, #ff4d6d, #ff758f); color: white; text-decoration: none; border-radius: 20px;">Go Back</a>
+        </div>
+      `;
+    } else {
+      const PASSWORD = "AdiJana";
+      let userPass;
 
-    if (userPass !== PASSWORD) {
-      document.body.classList.add("shake");
-      setTimeout(() => document.body.classList.remove("shake"), 400);
+      while (userPass !== PASSWORD) {
+        userPass = prompt("This page is only for Jana\n\nHint: Combine both our names");
+
+        if (userPass !== PASSWORD && userPass !== null) {
+          document.body.classList.add("shake");
+          setTimeout(() => document.body.classList.remove("shake"), 400);
+        }
+        if (userPass === null) break;
+      }
     }
-  }
+  });
 </script>
 
 <div class="container" id="card">
-  <h1>Jana ❤️</h1>
-  <p>Will you be my Valentine? 💕</p>
+  <div style="font-size: 60px;">💕</div>
+  <h1>Happy Valentine's Day, Jana!</h1>
 
-  <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
-  <button id="noBtn" onmouseenter="moveNo()">No 🙄</button>
+  <div class="message">
+    <p>My love,</p>
+    <p>We made it. 8 days of me being cheesy and you (hopefully) not cringing too hard. 😂</p>
+    <p>But here's the thing - everything I wrote? I meant every single word. You came into my life and turned it upside down in the best way possible. Before you, I didn't really get what all the love song fuss was about. Now I catch myself smiling at my phone like an idiot because you texted me "good morning."</p>
+  </div>
+
+  <div class="final-message">
+    <p style="color: #be123c; font-weight: 500; margin: 0;">The big question:</p>
+  </div>
+
+  <p style="font-size: 20px; color: #ff4d6d; font-weight: 500;">Will you be my Valentine? 💕</p>
+
+  <div>
+    <button id="yesBtn" onclick="sayYes()">Yes! 💖</button>
+    <button id="noBtn" onmouseenter="moveNo()">No 🙄</button>
+  </div>
+
+  <p class="music-note">🎵 Our special melody</p>
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/01/18/audio_8faf4d5ecb.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-btn" onclick="document.getElementById('music').play()">▶ Play Music</button>
+
+  <nav>
+    <a href="rose-day.html">Rose Day</a>
+    <a href="propose-day.html">Propose Day</a>
+    <a href="chocolate-day.html">Chocolate Day</a>
+    <a href="teddy-day.html">Teddy Day</a>
+    <a href="promise-day.html">Promise Day</a>
+    <a href="hug-day.html">Hug Day</a>
+    <a href="kiss-day.html">Kiss Day</a>
+    <a href="valentines.html" class="active">Valentine's Day</a>
+  </nav>
 </div>
-
-<!-- 🎶 Background Music -->
-<audio id="music" loop>
-  <source src="lover.mp3" type="audio/mpeg">
-</audio>
 
 <script>
   const noBtn = document.getElementById("noBtn");
 
   function moveNo() {
-    noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-    noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+    const maxX = window.innerWidth - 100;
+    const maxY = window.innerHeight - 50;
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
   }
 
   function rosePetals() {
-    for (let i = 0; i < 120; i++) {
-      const petal = document.createElement("div");
-      petal.className = "petal";
-      petal.innerHTML = "🌹";
-      petal.style.left = Math.random() * window.innerWidth + "px";
-      petal.style.animationDuration = Math.random() * 2 + 3 + "s";
-      document.body.appendChild(petal);
-      setTimeout(() => petal.remove(), 4000);
+    for (let i = 0; i < 150; i++) {
+      setTimeout(() => {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.innerHTML = ["🌹", "💕", "❤️", "💖", "🥰"][Math.floor(Math.random() * 5)];
+        petal.style.left = Math.random() * window.innerWidth + "px";
+        petal.style.animationDuration = Math.random() * 2 + 3 + "s";
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 5000);
+      }, i * 30);
     }
   }
 
@@ -145,11 +271,20 @@
     document.getElementById("music").play();
 
     document.getElementById("card").innerHTML = `
-      <h1>I love you ❤️</h1>
-      <p>Thank you for being my Valentine, Jana 💘</p>
-      <p style="font-size:42px">💐</p>
+      <div style="font-size: 80px;">🥰</div>
+      <h1 style="font-family: 'Great Vibes', cursive; font-size: 48px; color: #ff4d6d;">I Love You, Jana!</h1>
 
-      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWMxc2xkNndhN3JwbDdidjVydjlzbXF3dWd5eWU0ZWl3YjAxZWxuciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1ThndC5odGuUU/giphy.gif">
+      <div style="text-align: left; font-size: 16px; color: #444; line-height: 1.9; margin: 20px 0;">
+        <p>I KNEW you'd say yes. 😏❤️</p>
+        <p>Thank you for being my person. Thank you for choosing me every day. Thank you for all the laughs, the late-night talks, the silly arguments, and everything in between.</p>
+        <p>You're not just my Valentine today - you're my Valentine every day. And I'm the luckiest guy in the world because of it.</p>
+        <p>Here's to us, to more adventures, more memories, and more love than we know what to do with.</p>
+        <p style="text-align: right; font-style: italic; color: #ff4d6d; margin-top: 20px;">Forever and always yours,<br>Adi 💕</p>
+      </div>
+
+      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGQwOWplNjkwZHg1bzBodGg3NmJ2bGJlMjh6bjM1Z3M2NjNvZGJhYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BRv0ThflsHCqDrG/giphy.gif" alt="Love" style="width: 100%; border-radius: 20px; margin-top: 20px;">
+
+      <p style="font-size: 40px; margin-top: 20px;">💖🌹💕✨🥰</p>
     `;
   }
 </script>
